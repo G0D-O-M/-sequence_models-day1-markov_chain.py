@@ -1,0 +1,44 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import random
+#hum pichli value pe 0.7 percent use karke next value ko add up karke present value banayenge
+
+np.random.seed(42)
+n=50
+phi=0.7
+X=[0]
+#Kuch Random Value BAnayenge
+for t in range(1,n):
+  noise=np.random.normal(0,1)
+  value=phi * X[t-1]+noise
+  X.append(value)
+#Ab Hum Graph Plot Karenge
+plt.plot(X)
+plt.title("Autoregression Model Using AR(1) model")
+plt.xlabel("time")
+plt.ylabel("value")
+plt.show()
+#Finding the Phi Value from scratch
+X=np.array(X)
+X_T=X[1:]#THESE VALUE ARE THE ACTUAL VALUE(DAY1-END)
+X_T_1=X[:-1]#THESE ARE THE PREVIOUS VALUE(DAY 0-sECOND Last)
+#lear square (Linear  REGRESSION)
+phi_est=np.sum(X_T*X_T_1)/np.sum(X_T_1**2)
+print("estemated value of phi is",phi_est)
+#use that phi to predict the future values 
+future_steps=10
+predicted=[X[-1]]#StaRT with last unknown number
+for _ in range(future_steps):
+  next_value=phi_est*predicted[-1]
+  predicted.append(next_value)
+
+  print("the next sum value are ",predicted[1:])
+plt.plot(predicted, color = 'blue', label = 'Predicted Price')
+plt.title('Price Prediction')
+plt.xlabel('Time')
+plt.ylabel('Price')
+plt.legend()
+plt.show()
+
+
+
