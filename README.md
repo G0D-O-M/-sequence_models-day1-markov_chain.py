@@ -1,26 +1,47 @@
-# -sequence_models-day1-markov_chain.py
-# Autoregressive Model
+# 📈 Sequence Models – Day 1
 
-## 🔍 What It Does:
-Autoregressive (AR) models predict the next value in a sequence by using past values. It’s like teaching a model: “What comes next based on what has come before?”
+Welcome to Day 1 of my Machine Learning Mastery Series.  
+Today's focus: **Autoregressive Models** and **Markov Chains**
 
-## ⚙️ Equation:
-Xₜ = c + φ₁Xₜ₋₁ + φ₂Xₜ₋₂ + ... + φₚXₜ₋ₚ + εₜ
+---
 
-Where:
-- φ are parameters
-- εₜ is the noise
-- p = number of past steps used (order)
+## 🔁 Autoregressive Model (AR)
 
-## 📊 Example Use:
-- Stock price prediction
-- Weather forecasting
-- Time-series sequence generation
+### 🔍 What It Does:
+AR models predict future points in a sequence using past values.
+Equation:  
+**Xₜ = c + φ₁Xₜ₋₁ + φ₂Xₜ₋₂ + ... + φₚXₜ₋ₚ + εₜ**
 
-## ❗ Limitations:
-- Assumes linearity
-- Doesn’t handle long-range dependencies well
-- Poor at context switching → leads into why we need RNNs
-- ![image](https://github.com/user-attachments/assets/b6851f19-decb-447d-852b-dcfea22f7f4b)
+### ✅ Applications:
+- Stock Price Prediction
+- Weather Forecasting
+- Time-Series Forecasting
 
-![image](https://github.com/user-attachments/assets/8dd8db27-811a-4d4f-8248-bba9ad7e93c5)
+### 📊 Output Example:
+![image](https://github.com/user-attachments/assets/5d032838-3265-45fa-8208-bb7d7c3f0ed7)
+
+
+---
+
+## 🔄 Markov Chains
+
+### 🧠 Core Idea:
+Next state depends **only on the current state**, not the full history.  
+Known as the **Markov Property**.
+
+### 📝 Use Cases:
+- Text Generation
+- Predictive Typing
+- Game AI
+
+### 🔧 Sample Output:
+Generated sentence:  
+`"the sun rises in the east and sets in the west"`
+
+### ⚠️ Limitations:
+- Cannot model long-term dependencies
+- Memoryless → Not ideal for deep NLP tasks
+
+---
+
+## 📂 File Structure:
